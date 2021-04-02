@@ -3,10 +3,13 @@ const compression = require('compression');
 const bodyParser = require('body-parser');
 
 const { requestHandler } = require('./artifactHandler');
+const api = require('./routes/api');
 
 const app = express();
 const router = express.Router();
 router.use(compression());
+
+router.use('/api', api);
 
 // Remove Express headers from responses
 app.disable('x-powered-by');
