@@ -23,10 +23,16 @@ app.get('/sping', (req, res) => {
   res.status(200).send('OK');
 });
 
-app.get('*', async (req, res, next) => {
-  requestHandler(req, res, next);
-});
+//app.get('*', async (req, res, next) => {
+//  requestHandler(req, res, next);
+//});
 
 app.use('/', router);
+
+const port = 8080;
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+});
+
 
 module.exports = app;
